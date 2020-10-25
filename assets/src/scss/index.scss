@@ -1,0 +1,12 @@
+//reset default browser styles
+@import "components/reset";
+
+//scss variables
+@import "components/variables";
+@import "components/fonts";
+
+//your styles
+@import "components/arjs";
+@import "components/app";
+@import "components/buttons";
+@import "components/overlay";

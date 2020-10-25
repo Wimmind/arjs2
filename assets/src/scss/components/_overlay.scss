@@ -1,0 +1,23 @@
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .overlay__closer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+  }
+  & ~ .page {
+    filter: blur(2px);
+  }
+}

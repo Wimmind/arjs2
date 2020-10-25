@@ -1,0 +1,45 @@
+$white: #fff;
+$fontUrl: "/fonts/SFUIText-Semibold.ttf";
+$font: "sf_sb";
+$templates: (
+  0: (
+    wrapper: (
+      width: 742px,
+      height: 989px,
+    ),
+    marker__img: (
+      width: 676px,
+      height: 676px,
+    ),
+  ),
+  1: (
+    wrapper: (
+      width: 742px,
+      height: 989px,
+    ),
+    marker__img: (
+      width: 676px,
+      height: 849px,
+    ),
+  ),
+  2: (
+    wrapper: (
+      width: 989px,
+      height: 742px,
+    ),
+    marker__img: (
+      width: 923px,
+      height: 602px,
+    ),
+  ),
+  3: (
+    wrapper: (
+      width: 989px,
+      height: 742px,
+    ),
+    marker__img: (
+      width: 923px,
+      height: 568px,
+    ),
+  ),
+);
