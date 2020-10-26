@@ -1,1 +1,1 @@
-window['BASESUF'] = '/arjs2/assets/build';
+window['BASESUF'] = '/arjs2/public';
