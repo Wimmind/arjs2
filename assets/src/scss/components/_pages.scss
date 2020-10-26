@@ -1,0 +1,36 @@
+.page {
+  max-width: 1440px;
+  height: 900px;
+  margin: 0 auto;
+}
+
+.main-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &_group-buttons {
+    display: flex;
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+    &>a:first-child {
+      margin-right: 20px;
+      @media (max-width: 768px) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+.pc-page {
+  padding: 20px;
+  & .btn-link {
+    margin-bottom: 80px;
+  }
+}
+
+.page_camera {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}

@@ -1,1 +1,1 @@
-window['BASESUF'] = '/boft-ar/build';
+window['BASESUF'] = '/arjs2/assets/build';

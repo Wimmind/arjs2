@@ -41,3 +41,25 @@
     margin-right: auto;
   }
 }
+
+.btn-link {
+  color: $white;
+  font-size: 35px;
+  text-transform: uppercase;
+  cursor: pointer;
+  height: 50px;
+  padding: 5px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  &:hover {
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+  }
+  &_pc {
+    background-color: $blue;
+  }
+  &_mobile {
+    background-color: $red;
+  }
+}

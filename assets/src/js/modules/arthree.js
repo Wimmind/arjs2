@@ -149,7 +149,7 @@ ARTHREE.VIDEOTYPES = {
   HORIZONTAL: 'HORIZONTAL',
   RECTANGLE: 'RECTANGLE',
 }
-ARTHREE.VERTICAL = 'https://scontent-frt3-2.cdninstagram.com/v/t50.2886-16/106147630_310787940325561_487812401535930628_n.mp4?_nc_ht=scontent-frt3-2.cdninstagram.com&_nc_cat=101&_nc_ohc=ZdlDuUjJzHsAX__kb3k&oe=5F0AEC06&oh=3cc4df275326056535c686754f19d876';
+ARTHREE.VERTICAL = '/video/skin.mp4';
 ARTHREE.HORIZONTAL = './video/skin.mp4';
 ARTHREE.RECTANGLE = 'https://scontent-frt3-1.cdninstagram.com/v/t50.2886-16/10350813_771229796339514_685455158_n.mp4?efg=eyJxZV9ncm91cHMiOiJbXCJpZ19wcm9ncmVzc2l2ZV91cmxnZW4ucHJvZHVjdF90eXBlLmZlZWRcIl0ifQ&_nc_ht=scontent-frt3-1.cdninstagram.com&_nc_cat=106&_nc_ohc=3Mv5Rjao0eUAX-_0Gux&oe=5F0AB690&oh=79a6e25776ca017d0371a1c52d3f5163';
 ARTHREE.SIZE = 240;

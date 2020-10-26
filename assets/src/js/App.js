@@ -4,7 +4,6 @@ import API, { ROUTES } from './api';
 import CONFIG from './config';
 import PAGES from './pages';
 import COMPONENTS from './components';
-import { isBrowser } from "react-device-detect";
 
 const PRELOADERNAME = 'isPreloader';
 
@@ -17,9 +16,9 @@ class App extends React.Component {
           isActive={this.props[PRELOADERNAME]}
           isActiveName={PRELOADERNAME}
         />
-        {isBrowser ? <PAGES.Desktop /> : <PAGES.Mobile />}
+        {/* {isBrowser ? <PAGES.Desktop /> : <PAGES.Mobile />} */}
 
-        {/* <Router>
+        <Router>
           <Switch>
             {Object.keys(ROUTES).map(name => (
               <Route
@@ -31,7 +30,7 @@ class App extends React.Component {
               />
             ))}
           </Switch>
-        </Router> */}
+        </Router>
       </div>
     )
   }

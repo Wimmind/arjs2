@@ -160,8 +160,7 @@ export class Mobile extends React.Component {
   render() {
     const { isAccess } = this.state;
     return (
-      <div className="page page_camera">
-        <COMPONENTS.Header />
+      <div className="page_camera">
         {isAccess ? (isAccess === DENIED ? this.renderError() : this.renderDetection()) : this.renderRequest()}
       </div>
     )
