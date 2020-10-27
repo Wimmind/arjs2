@@ -68,7 +68,6 @@ export class Mobile extends React.Component {
     this.setState({ video_type: MODULES.ARTHREE.VIDEOTYPES.VERTICAL }, () => {
       document.querySelector('#videoForThree').src = '/img/jiraf.jpg';
     })
-    // this.ARTHREE = new MODULES.ARTHREE()
   }
 
   renderError = () => (
@@ -78,10 +77,6 @@ export class Mobile extends React.Component {
       <div className="button button_center" onClick={this.requestPermission}>Проверить доступ к камере</div>
     </div>
   )
-
-  onStartVideo = () => {
-    // this.ARTHREE.addMarker()
-  }
 
   onScan = data => {
 
@@ -129,12 +124,12 @@ export class Mobile extends React.Component {
         <>
           <QrReader onScan={this.onScan} className="qrReader" />
           <div className="request__title">Наведите камеру на фото, чтобы отсканировать код видео</div>
-          <img className="request__img request__img_border" src="./img/border.svg" alt="" />
+         
         </>
         :
         <>
           <div className="request__title">Наведите камеру на фото, чтобы отсканировать код видео</div>
-          <img className="request__img request__img_border" src="./img/border.svg" alt="" />
+          
           <div className="buttons">
             <COMPONENTS.Button title="Сбросить" onClick={this.onReset} />
           </div>
