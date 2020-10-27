@@ -27,45 +27,7 @@ body,
     display: flex;
     flex-direction: column;
   }
-  .markerWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: auto;
-  }
-  .marker {
-    display: flex;
-    flex-direction: column;
-    padding: 33px;
-    box-sizing: border-box;
-    background-color: white;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
-    .marker__img {
-      background-color: grey;
-    }
-    .marker__qrcode {
-      margin-top: auto;
-      margin-left: auto;
-      width: 180px;
-      height: 180px;
-      background-color: grey;
-    }
-    @each $key, $ar in $templates {
-      &_#{$key} {
-        @each $name, $ar1 in $ar {
-          @each $field, $value in $ar1 {
-            @if $name == "wrapper" {
-              #{$field}: $value;
-            } @else {
-              .#{$name} {
-                #{$field}: $value;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+ 
   .request {
     margin-top: auto;
     margin-bottom: auto;
@@ -103,5 +65,28 @@ body,
   }
   &.page_camera {
     background-color: unset;
+  }
+}
+
+.marker {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  &__container {
+    width: 800px;
+    height: 600px;
+    position: relative;
+  }
+  &__img {
+    width: 800px;
+    height: 600px;
+  }
+  &__qrcode {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    bottom: 0;
+    right: -190px;
   }
 }

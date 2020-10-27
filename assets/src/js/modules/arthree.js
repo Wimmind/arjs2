@@ -28,20 +28,12 @@ export class ARTHREE {
 
     let GROUP = new THREE.Group();
 
-    //video
-    // let videoTAG = document.getElementById('videoForThree');
-    // let texture = new THREE.VideoTexture(videoTAG);
-    // texture.minFilter = THREE.LinearFilter;
-    // texture.magFilter = THREE.LinearFilter;
-    // texture.format = THREE.RGBFormat;
-
     let imageTAG = document.getElementById('videoForThree');
 
     let texture = new THREE.TextureLoader().load(imageTAG.src);
-    // texture.wrapS = THREE.RepeatWrapping;
-    // texture.wrapT = THREE.RepeatWrapping;
 
-    const videoWidth = 676, videoHeight = 676;
+
+    const videoWidth = 800, videoHeight = 600;
 
     let _width = 0,
       _height = 0,
@@ -62,50 +54,50 @@ export class ARTHREE {
         _height = height;
       }
     }
-    // else if (width > height) {
-    //   if (videoDiff > markerDiff) {
-    //     if (videoWidth > videoHeight) {
-    //       _width = width;
-    //       _height = width / videoDiff;
-    //     }
-    //     else {
-    //       _width = height / videoDiff;
-    //       _height = height;
-    //     }
-    //   }
-    //   else {
-    //     if (videoWidth < videoHeight) {
-    //       _width = height * videoDiff;
-    //       _height = height;
-    //     }
-    //     else {
-    //       _width = height / videoDiff;
-    //       _height = height;
-    //     }
-    //   }
-    // }
-    // else {
-    //   if (videoDiff > markerDiff) {
-    //     if (videoWidth >= videoHeight) {
-    //       _width = width;
-    //       _height = width / videoDiff;
-    //     }
-    //     else {
-    //       _width = height * videoDiff;
-    //       _height = height;
-    //     }
-    //   }
-    //   else {
-    //     if (videoWidth < videoHeight) {
-    //       _width = width;
-    //       _height = width / videoDiff;
-    //     }
-    //     else {
-    //       _width = height / videoDiff;
-    //       _height = height;
-    //     }
-    //   }
-    // }
+    else if (width > height) {
+      if (videoDiff > markerDiff) {
+        if (videoWidth > videoHeight) {
+          _width = width;
+          _height = width / videoDiff;
+        }
+        else {
+          _width = height / videoDiff;
+          _height = height;
+        }
+      }
+      else {
+        if (videoWidth < videoHeight) {
+          _width = height * videoDiff;
+          _height = height;
+        }
+        else {
+          _width = height / videoDiff;
+          _height = height;
+        }
+      }
+    }
+    else {
+      if (videoDiff > markerDiff) {
+        if (videoWidth >= videoHeight) {
+          _width = width;
+          _height = width / videoDiff;
+        }
+        else {
+          _width = height * videoDiff;
+          _height = height;
+        }
+      }
+      else {
+        if (videoWidth < videoHeight) {
+          _width = width;
+          _height = width / videoDiff;
+        }
+        else {
+          _width = height / videoDiff;
+          _height = height;
+        }
+      }
+    }
 
 
     let VIDEO = this.createMesh(_width, _height, { map: texture });

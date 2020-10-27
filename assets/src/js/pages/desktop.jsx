@@ -12,13 +12,13 @@ export class Desktop extends React.Component {
       <div className="page pc-page">
         <COMPONENTS.ButtonLink
           title={'назад'}
-          styles={'btn-link btn-link_pc'}
+          styles={'btn-link btn-link_blue'}
           pathname={CONFIG.BASESUF + ROUTES.Main.path}
         />
-        <div className="markerWrapper">
-          <div className={API.setClasses(['marker', `marker_${count}`])}>
-            <img className="marker__img" alt="" src={`/marker/${MARKERS[count]}/${MARKERS[count]}.png`} />
-            <img className="marker__qrcode" alt="" src={`/marker/${MARKERS[count]}/qr-code.png`} />
+        <div className="marker__wrapper">
+          <div className="marker__container">
+            <img className="marker__img" alt="" src={`/marker/lime.png`} />
+            <img className="marker__qrcode" alt="" src={`/marker/qr-code.png`} />
           </div>
         </div>
       </div>

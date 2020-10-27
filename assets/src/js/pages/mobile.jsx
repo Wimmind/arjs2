@@ -1,5 +1,7 @@
 import React from 'react';
+import { ROUTES } from '../api';
 import COMPONENTS from '../components';
+import CONFIG from '../config'
 import MODULES from '../modules';
 import QrReader from 'react-qr-reader'
 import API from '../api';
@@ -15,23 +17,6 @@ export class Mobile extends React.Component {
       isMuted: true,
       video_type: MODULES.ARTHREE.VIDEOTYPES.VERTICAL
     }
-    this.datas = [];
-  }
-
-  switchVideo = () => {
-    let { video_type } = this.state;
-    if (video_type === MODULES.ARTHREE.VIDEOTYPES.VERTICAL) {
-      video_type = MODULES.ARTHREE.VIDEOTYPES.HORIZONTAL
-    }
-    else if (video_type === MODULES.ARTHREE.VIDEOTYPES.HORIZONTAL) {
-      video_type = MODULES.ARTHREE.VIDEOTYPES.RECTANGLE;
-    }
-    else {
-      video_type = MODULES.ARTHREE.VIDEOTYPES.VERTICAL;
-    }
-    this.setState({ video_type }, () => {
-      document.querySelector('#videoForThree').src = MODULES.ARTHREE[video_type]
-    })
   }
 
   permissionStatus = async () => {
@@ -79,60 +64,33 @@ export class Mobile extends React.Component {
   )
 
   onScan = data => {
-
-    let params = [
-      [676, 676]
-    ];
-
     if (data) {
-      if (this.datas.indexOf(data) === -1) {
-        data = JSON.parse(data);
-        let [width, height] = params[parseInt(data)];
-        this.datas.push(data)
-        this.setState({ isQrDetect: false })
-        this.props.setRedux({ isPreloader: true })
-        let end = (self) => {
-          self.addMarker({ width, height, url: `marker/${width}x${height}/${width}x${height}` })
-          this.props.setRedux({ isPreloader: false })
-        };
 
-        if (this.ARTHREE) {
-          end(this.ARTHREE)
-        }
-        else {
-          this.ARTHREE = new MODULES.ARTHREE(end)
-        }
+      const width = 800;
+      const height = 600;
+
+      this.setState({ isQrDetect: false })
+      this.props.setRedux({ isPreloader: true })
+      let end = (self) => {
+        self.addMarker({ width, height, url: `marker/lime` })
+        this.props.setRedux({ isPreloader: false })
+      };
+
+      if (this.ARTHREE) {
+        end(this.ARTHREE)
+      }
+      else {
+        this.ARTHREE = new MODULES.ARTHREE(end)
       }
     }
-  }
-
-  toggleMute = () => {
-    let { isMuted } = this.state;
-    isMuted = !isMuted;
-    document.querySelector('#videoForThree').muted = isMuted;
-    this.setState({ isMuted })
-  }
-
-  onReset = () => {
-    this.setState({ isQrDetect: true })
-    this.ARTHREE.remove()
   }
 
   renderDetection = () => (
     <>
       {this.state.isQrDetect ?
-        <>
-          <QrReader onScan={this.onScan} className="qrReader" />
-          <div className="request__title">Наведите камеру на фото, чтобы отсканировать код видео</div>
-         
-        </>
+        <QrReader onScan={this.onScan} className="qrReader" />
         :
         <>
-          <div className="request__title">Наведите камеру на фото, чтобы отсканировать код видео</div>
-          
-          <div className="buttons">
-            <COMPONENTS.Button title="Сбросить" onClick={this.onReset} />
-          </div>
         </>
       }
     </>
@@ -150,6 +108,11 @@ export class Mobile extends React.Component {
     const { isAccess } = this.state;
     return (
       <div className="page_camera">
+        <COMPONENTS.ButtonLink
+            title={'назад'}
+            styles={'btn-link btn-link_blue btn-link_mobile'}
+            pathname={CONFIG.BASESUF + ROUTES.Main.path}
+          />
         {isAccess ? (isAccess === DENIED ? this.renderError() : this.renderDetection()) : this.renderRequest()}
       </div>
     )

@@ -23,8 +23,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  .button__img {
-  }
   &.button_icon {
     box-shadow: unset;
     border: unset;
@@ -53,13 +51,20 @@
   display: flex;
   justify-content: center;
   border-radius: 10px;
+  letter-spacing: -1px;
   &:hover {
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
   }
-  &_pc {
+  &_blue {
     background-color: $blue;
   }
-  &_mobile {
+  &_red {
     background-color: $red;
+  }
+  &_mobile {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: calc(100% - 20px);
   }
 }
