@@ -66,7 +66,7 @@ export class Mobile extends React.Component {
   componentDidMount() {
     this.permissionStatus()
     this.setState({ video_type: MODULES.ARTHREE.VIDEOTYPES.VERTICAL }, () => {
-      document.querySelector('#videoForThree').src = MODULES.ARTHREE[MODULES.ARTHREE.VIDEOTYPES.VERTICAL]
+      document.querySelector('#videoForThree').src = '/img/jiraf.jpg';
     })
     // this.ARTHREE = new MODULES.ARTHREE()
   }
@@ -84,11 +84,9 @@ export class Mobile extends React.Component {
   }
 
   onScan = data => {
+
     let params = [
-      [676, 676],
-      [676, 849],
-      [923, 568],
-      [923, 602],
+      [676, 676]
     ];
 
     if (data) {
@@ -132,9 +130,6 @@ export class Mobile extends React.Component {
           <QrReader onScan={this.onScan} className="qrReader" />
           <div className="request__title">Наведите камеру на фото, чтобы отсканировать код видео</div>
           <img className="request__img request__img_border" src="./img/border.svg" alt="" />
-          <div className="buttons">
-            <COMPONENTS.Button title={`Video: ${this.state.video_type}`} onClick={this.switchVideo} />
-          </div>
         </>
         :
         <>
@@ -142,7 +137,6 @@ export class Mobile extends React.Component {
           <img className="request__img request__img_border" src="./img/border.svg" alt="" />
           <div className="buttons">
             <COMPONENTS.Button title="Сбросить" onClick={this.onReset} />
-            <COMPONENTS.Button title={this.state.isMuted ? "Включить звук" : "Выключить звук"} onClick={this.toggleMute} />
           </div>
         </>
       }

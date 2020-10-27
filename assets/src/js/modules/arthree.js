@@ -29,12 +29,20 @@ export class ARTHREE {
     let GROUP = new THREE.Group();
 
     //video
-    let videoTAG = document.getElementById('videoForThree');
-    let texture = new THREE.VideoTexture(videoTAG);
-    texture.minFilter = THREE.LinearFilter;
-    texture.magFilter = THREE.LinearFilter;
-    texture.format = THREE.RGBFormat;
-    const { videoWidth, videoHeight } = videoTAG;
+    // let videoTAG = document.getElementById('videoForThree');
+    // let texture = new THREE.VideoTexture(videoTAG);
+    // texture.minFilter = THREE.LinearFilter;
+    // texture.magFilter = THREE.LinearFilter;
+    // texture.format = THREE.RGBFormat;
+
+    let imageTAG = document.getElementById('videoForThree');
+
+    let texture = new THREE.TextureLoader().load(imageTAG.src);
+    // texture.wrapS = THREE.RepeatWrapping;
+    // texture.wrapT = THREE.RepeatWrapping;
+
+    const videoWidth = 676, videoHeight = 676;
+
     let _width = 0,
       _height = 0,
       videoDiff = videoWidth / videoHeight,
@@ -54,50 +62,50 @@ export class ARTHREE {
         _height = height;
       }
     }
-    else if (width > height) {
-      if (videoDiff > markerDiff) {
-        if (videoWidth > videoHeight) {
-          _width = width;
-          _height = width / videoDiff;
-        }
-        else {
-          _width = height / videoDiff;
-          _height = height;
-        }
-      }
-      else {
-        if (videoWidth < videoHeight) {
-          _width = height * videoDiff;
-          _height = height;
-        }
-        else {
-          _width = height / videoDiff;
-          _height = height;
-        }
-      }
-    }
-    else {
-      if (videoDiff > markerDiff) {
-        if (videoWidth >= videoHeight) {
-          _width = width;
-          _height = width / videoDiff;
-        }
-        else {
-          _width = height * videoDiff;
-          _height = height;
-        }
-      }
-      else {
-        if (videoWidth < videoHeight) {
-          _width = width;
-          _height = width / videoDiff;
-        }
-        else {
-          _width = height / videoDiff;
-          _height = height;
-        }
-      }
-    }
+    // else if (width > height) {
+    //   if (videoDiff > markerDiff) {
+    //     if (videoWidth > videoHeight) {
+    //       _width = width;
+    //       _height = width / videoDiff;
+    //     }
+    //     else {
+    //       _width = height / videoDiff;
+    //       _height = height;
+    //     }
+    //   }
+    //   else {
+    //     if (videoWidth < videoHeight) {
+    //       _width = height * videoDiff;
+    //       _height = height;
+    //     }
+    //     else {
+    //       _width = height / videoDiff;
+    //       _height = height;
+    //     }
+    //   }
+    // }
+    // else {
+    //   if (videoDiff > markerDiff) {
+    //     if (videoWidth >= videoHeight) {
+    //       _width = width;
+    //       _height = width / videoDiff;
+    //     }
+    //     else {
+    //       _width = height * videoDiff;
+    //       _height = height;
+    //     }
+    //   }
+    //   else {
+    //     if (videoWidth < videoHeight) {
+    //       _width = width;
+    //       _height = width / videoDiff;
+    //     }
+    //     else {
+    //       _width = height / videoDiff;
+    //       _height = height;
+    //     }
+    //   }
+    // }
 
 
     let VIDEO = this.createMesh(_width, _height, { map: texture });
@@ -149,9 +157,11 @@ ARTHREE.VIDEOTYPES = {
   HORIZONTAL: 'HORIZONTAL',
   RECTANGLE: 'RECTANGLE',
 }
-ARTHREE.VERTICAL = '/video/skin.mp4';
-ARTHREE.HORIZONTAL = './video/skin.mp4';
-ARTHREE.RECTANGLE = 'https://scontent-frt3-1.cdninstagram.com/v/t50.2886-16/10350813_771229796339514_685455158_n.mp4?efg=eyJxZV9ncm91cHMiOiJbXCJpZ19wcm9ncmVzc2l2ZV91cmxnZW4ucHJvZHVjdF90eXBlLmZlZWRcIl0ifQ&_nc_ht=scontent-frt3-1.cdninstagram.com&_nc_cat=106&_nc_ohc=3Mv5Rjao0eUAX-_0Gux&oe=5F0AB690&oh=79a6e25776ca017d0371a1c52d3f5163';
+//ARTHREE.VERTICAL = '/video/skin.mp4';
+//ARTHREE.VERTICAL = '/img/jiraf.jpg';
+
+ARTHREE.HORIZONTAL = '';
+ARTHREE.RECTANGLE = '';
 ARTHREE.SIZE = 240;
 ARTHREE.DEFAULT = 676;
 
