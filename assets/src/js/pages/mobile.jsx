@@ -15,7 +15,6 @@ export class Mobile extends React.Component {
       isAccess: true,
       isQrDetect: true,
       isMuted: true,
-      video_type: MODULES.ARTHREE.VIDEOTYPES.VERTICAL
     }
   }
 
@@ -50,9 +49,7 @@ export class Mobile extends React.Component {
 
   componentDidMount() {
     this.permissionStatus()
-    this.setState({ video_type: MODULES.ARTHREE.VIDEOTYPES.VERTICAL }, () => {
-      document.querySelector('#videoForThree').src = '/img/jiraf.jpg';
-    })
+    document.querySelector('#videoForThree').src = '/img/jiraf.jpg';
   }
 
   renderError = () => (

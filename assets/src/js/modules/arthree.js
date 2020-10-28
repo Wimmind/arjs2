@@ -27,106 +27,11 @@ export class ARTHREE {
     height = height / ARTHREE.DEFAULT * ARTHREE.SIZE;
 
     let GROUP = new THREE.Group();
-
     let imageTAG = document.getElementById('videoForThree');
-
     let texture = new THREE.TextureLoader().load(imageTAG.src);
-
-
-    const videoWidth = 800, videoHeight = 600;
-
-    let _width = 0,
-      _height = 0,
-      videoDiff = videoWidth / videoHeight,
-      markerDiff = width / height;
-
-    if (width === height) {
-      if (videoWidth > videoHeight) {
-        _width = width;
-        _height = width / videoDiff;
-      }
-      else if (videoWidth < videoHeight) {
-        _width = height * videoDiff;
-        _height = height;
-      }
-      else {
-        _width = height / videoDiff;
-        _height = height;
-      }
-    }
-    else if (width > height) {
-      if (videoDiff > markerDiff) {
-        if (videoWidth > videoHeight) {
-          _width = width;
-          _height = width / videoDiff;
-        }
-        else {
-          _width = height / videoDiff;
-          _height = height;
-        }
-      }
-      else {
-        if (videoWidth < videoHeight) {
-          _width = height * videoDiff;
-          _height = height;
-        }
-        else {
-          _width = height / videoDiff;
-          _height = height;
-        }
-      }
-    }
-    else {
-      if (videoDiff > markerDiff) {
-        if (videoWidth >= videoHeight) {
-          _width = width;
-          _height = width / videoDiff;
-        }
-        else {
-          _width = height * videoDiff;
-          _height = height;
-        }
-      }
-      else {
-        if (videoWidth < videoHeight) {
-          _width = width;
-          _height = width / videoDiff;
-        }
-        else {
-          _width = height / videoDiff;
-          _height = height;
-        }
-      }
-    }
-
-
-    let VIDEO = this.createMesh(_width, _height, { map: texture });
-    GROUP.add(VIDEO)
-
-    let diffWidth = width - _width;
-    let diffHeight = height - _height;
-    let PARAMS = {};
-    let FIRST, SECOND;
-
-    if (diffWidth) {
-      let bwidth = diffWidth / 2;
-      let offset = bwidth / 2 + _width / 2;
-      FIRST = this.createMesh(bwidth, height, { color: 0x000000 })
-      FIRST.position.x = -offset;
-      SECOND = this.createMesh(bwidth, height, { color: 0x000000 })
-      SECOND.position.x = offset;
-    }
-    else if (diffHeight) {
-      let bheight = diffHeight / 2;
-      let offset = bheight / 2 + _height / 2;
-      FIRST = this.createMesh(width, bheight, { color: 0x000000 })
-      FIRST.position.y = -offset;
-      SECOND = this.createMesh(width, bheight, { color: 0x000000 })
-      SECOND.position.y = offset;
-    }
-
-    GROUP.add(FIRST)
-    GROUP.add(SECOND)
+    
+    let IMAGE = this.createMesh(width, height, { map: texture });
+    GROUP.add(IMAGE)
 
     GROUP.position.x = width / 2;
     GROUP.position.y = height / 2;
@@ -144,14 +49,7 @@ export class ARTHREE {
     requestAnimationFrame(this.animate);
   }
 };
-ARTHREE.VIDEOTYPES = {
-  VERTICAL: 'VERTICAL',
-  HORIZONTAL: 'HORIZONTAL',
-  RECTANGLE: 'RECTANGLE',
-}
 
-ARTHREE.HORIZONTAL = '';
-ARTHREE.RECTANGLE = '';
 ARTHREE.SIZE = 240;
 ARTHREE.DEFAULT = 676;
 
